@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import UserDAO.AccountServices;
 import static UserDAO.AccountServices.addUser;
 import static UserDAO.AccountServices.checkAccountExisted;
+
 /**
  *
  * @author vygir
@@ -20,7 +21,7 @@ public class Sign_up extends javax.swing.JDialog {
      * Creates new form Sign_up
      */
     User u;
-
+    
     public Sign_up(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -60,6 +61,11 @@ public class Sign_up extends javax.swing.JDialog {
         confirmPass.setForeground(new java.awt.Color(255, 255, 255));
         confirmPass.setText("Confirm Password");
         confirmPass.setBorder(null);
+        confirmPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                confirmPassFocusGained(evt);
+            }
+        });
         confirmPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confirmPassMouseClicked(evt);
@@ -76,6 +82,11 @@ public class Sign_up extends javax.swing.JDialog {
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setText("Password");
         jPasswordField1.setBorder(null);
+        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordField1FocusGained(evt);
+            }
+        });
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
@@ -115,6 +126,11 @@ public class Sign_up extends javax.swing.JDialog {
         user1.setForeground(new java.awt.Color(255, 255, 255));
         user1.setText("Username");
         user1.setBorder(null);
+        user1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                user1FocusGained(evt);
+            }
+        });
         user1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 user1MouseClicked(evt);
@@ -150,7 +166,7 @@ public class Sign_up extends javax.swing.JDialog {
     private void confirmPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmPassActionPerformed
         confirmPass.setText("");
     }//GEN-LAST:event_confirmPassActionPerformed
-private boolean checkBlankSpace() {
+    private boolean checkBlankSpace() {
         if (user1.getText().equals("")
                 || String.valueOf(jPasswordField1.getPassword()).equals("")
                 || confirmPass.getText().equals("")) {
@@ -169,18 +185,17 @@ private boolean checkBlankSpace() {
                             "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
-                 
-                        int id = JOptionPane.showConfirmDialog(this, "Are you sure to create?");
-                        if (id == JOptionPane.YES_OPTION) {
-                            addUser(usernameText,
-                                    passwordText
-                                    );
-                            JOptionPane.showMessageDialog(this, "Succesful!!!");
-                            
-                            this.dispose();
-                        }
                     
-
+                    int id = JOptionPane.showConfirmDialog(this, "Are you sure to create?");
+                    if (id == JOptionPane.YES_OPTION) {
+                        addUser(usernameText,
+                                passwordText
+                        );
+                        JOptionPane.showMessageDialog(this, "Succesful!!!");
+                        
+                        this.dispose();
+                    }
+                    
                 }
             } else {
                 JOptionPane.showMessageDialog(this,
@@ -211,12 +226,23 @@ private boolean checkBlankSpace() {
     private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
         jPasswordField1.setText("");
     }//GEN-LAST:event_jPasswordField1MouseClicked
+
+    private void user1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_user1FocusGained
+        user1.setText("");
+    }//GEN-LAST:event_user1FocusGained
+
+    private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
+        jPasswordField1.setText("");    }//GEN-LAST:event_jPasswordField1FocusGained
+
+    private void confirmPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmPassFocusGained
+        confirmPass.setText("");
+    }//GEN-LAST:event_confirmPassFocusGained
     public void setUser() {
         String name = user1.getText();
         String pass = jPasswordField1.getToolTipText();
         u = new User(name, pass);
     }
-
+    
     public User getUser() {
         return u;
     }

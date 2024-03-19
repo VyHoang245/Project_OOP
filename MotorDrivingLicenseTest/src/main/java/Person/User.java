@@ -4,7 +4,6 @@
  */
 package Person;
 
-import com.mycompany.motordrivinglicensetest.Test;
 import java.util.ArrayList;
 
 /**

@@ -321,12 +321,13 @@ public class Test extends javax.swing.JFrame {
     }//GEN-LAST:event_submitButtonMouseClicked
 
     private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        new Home(u).setVisible(true);
+        
         int confirm = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn thoát bài thi chứ?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
                         if (confirm == JOptionPane.YES_OPTION) {
                             this.dispose();
+                            new Home(u).setVisible(true);
                         }
-        this.dispose();
+        //this.dispose();
     }//GEN-LAST:event_exitButtonMouseClicked
 
 

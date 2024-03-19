@@ -76,6 +76,11 @@ public class Login extends javax.swing.JFrame {
         userTextField.setForeground(new java.awt.Color(255, 255, 255));
         userTextField.setText("Username");
         userTextField.setBorder(null);
+        userTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userTextFieldFocusGained(evt);
+            }
+        });
         userTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userTextFieldMouseClicked(evt);
@@ -92,6 +97,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setText("Password");
         jPasswordField1.setBorder(null);
+        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordField1FocusGained(evt);
+            }
+        });
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPasswordField1MouseClicked(evt);
@@ -183,6 +193,14 @@ public class Login extends javax.swing.JFrame {
         Sign_up signup = new Sign_up(null, true);
         signup.setVisible(true);
     }//GEN-LAST:event_signUpButtonMouseClicked
+
+    private void userTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userTextFieldFocusGained
+        userTextField.setText("");
+    }//GEN-LAST:event_userTextFieldFocusGained
+
+    private void jPasswordField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusGained
+        jPasswordField1.setText("");
+    }//GEN-LAST:event_jPasswordField1FocusGained
 
     /**
      * @param args the command line arguments
