@@ -98,6 +98,7 @@ public class Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin");
+        setIconImages(null);
 
         questionTable.setBackground(java.awt.SystemColor.activeCaption);
         questionTable.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +146,7 @@ public class Admin extends javax.swing.JFrame {
         deleteLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         deleteLabel.setForeground(new java.awt.Color(255, 255, 255));
         deleteLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        deleteLabel.setText("Delete");
+        deleteLabel.setText("Xóa");
         deleteLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         deleteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,16 +159,16 @@ public class Admin extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addGap(29, 29, 29)
                 .addComponent(deleteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(391, Short.MAX_VALUE)
                 .addComponent(deleteLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         userPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 0, 210, 455));
@@ -218,18 +219,19 @@ public class Admin extends javax.swing.JFrame {
 
         view.setBackground(java.awt.SystemColor.activeCaption);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Câu hỏi");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Câu trả lời");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Đáp án");
 
+        addButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         addButton.setText("Thêm");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +239,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        changeButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         changeButton.setText("Sửa");
         changeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +247,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        deleteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         deleteButton.setText("Xóa");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,9 +264,9 @@ public class Admin extends javax.swing.JFrame {
                 .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(viewLayout.createSequentialGroup()
                         .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(keyText)
@@ -272,12 +276,13 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(questionText)
                             .addComponent(AText)))
                     .addGroup(viewLayout.createSequentialGroup()
-                        .addGap(0, 180, Short.MAX_VALUE)
+                        .addGap(0, 118, Short.MAX_VALUE)
                         .addComponent(addButton)
-                        .addGap(31, 31, 31)
+                        .addGap(55, 55, 55)
                         .addComponent(changeButton)
-                        .addGap(31, 31, 31)
-                        .addComponent(deleteButton)))
+                        .addGap(53, 53, 53)
+                        .addComponent(deleteButton)
+                        .addGap(16, 16, 16)))
                 .addContainerGap())
         );
         viewLayout.setVerticalGroup(
@@ -307,7 +312,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(addButton)
                     .addComponent(changeButton)
                     .addComponent(deleteButton))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         qusPanel.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 470, 395));

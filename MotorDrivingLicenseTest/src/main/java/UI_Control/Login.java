@@ -51,6 +51,8 @@ public class Login extends javax.swing.JFrame {
         signUpButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Đăng nhập");
+        setIconImages(null);
 
         jPanel2.setBackground(new java.awt.Color(74, 31, 61));
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 371));
@@ -117,7 +119,7 @@ public class Login extends javax.swing.JFrame {
 
         signIn.setForeground(new java.awt.Color(255, 255, 255));
         signIn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signIn.setText("Sign in");
+        signIn.setText("Đăng nhập");
         signIn.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         signIn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -134,7 +136,7 @@ public class Login extends javax.swing.JFrame {
 
         signUpButton.setForeground(new java.awt.Color(255, 255, 255));
         signUpButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signUpButton.setText("Sign up");
+        signUpButton.setText("Đăng kí");
         signUpButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         signUpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -60,45 +60,35 @@ public class AddQuestion extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thêm câu hỏi");
+        setIconImages(null);
 
         jPanel3.setBackground(java.awt.SystemColor.inactiveCaption);
         jPanel3.setLayout(new java.awt.GridLayout(7, 1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Câu hỏi:");
         jPanel3.add(jLabel1);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Câu trả lời:");
         jPanel3.add(jLabel2);
         jPanel3.add(jLabel5);
         jPanel3.add(jLabel6);
         jPanel3.add(jLabel7);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Đáp án:");
         jPanel3.add(jLabel3);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
 
         jPanel4.setBackground(java.awt.SystemColor.inactiveCaption);
+        jPanel4.setLayout(new java.awt.BorderLayout());
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 3, 30)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Thêm câu hỏi mới");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+        jPanel4.add(jLabel4, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_START);
 
@@ -130,6 +120,7 @@ public class AddQuestion extends javax.swing.JDialog {
         jPanel1.setBackground(java.awt.SystemColor.inactiveCaption);
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
+        AddButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AddButton.setText("Thêm");
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

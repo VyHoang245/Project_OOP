@@ -36,9 +36,14 @@ public class Test extends javax.swing.JFrame {
     
     public void BuidTest() {
         int size = ListQuestions.list.size();
-        for (int i = 0; i < 25; i++) {
-            int rd = (int) Math.round(Math.random() * (size - 1));
-            Question q = ListQuestions.list.get(rd);
+        Set<Integer> randomNumbers = new HashSet<>();
+        int rd;
+        while(randomNumbers.size()<26){
+            rd = (int) Math.round(Math.random() * (size - 1));
+            randomNumbers.add(rd);
+        }
+        for (int i : randomNumbers) {
+            Question q = ListQuestions.list.get(i);
             q.setSelectedAnswer("");
             listQuestions.add(q);
         }
@@ -54,7 +59,7 @@ public class Test extends javax.swing.JFrame {
 
     public void View() {
         Question q = listQuestions.get(pos);
-        qusLabel.setText(q.getQuestion());
+        qusLabel.setText("Câu "+(pos+1)+": "+q.getQuestion());
         aRButton.setText(q.getAnswerA());
         bRButton.setText(q.getAnswerB());
         cRButton.setText(q.getAnswerC());
@@ -93,6 +98,8 @@ public class Test extends javax.swing.JFrame {
         dRButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Trắc nghiệm bằng lái xe 2 bánh");
+        setIconImages(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,16 +109,16 @@ public class Test extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(qusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(qusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addComponent(qusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE)
+                .addComponent(qusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -152,7 +159,7 @@ public class Test extends javax.swing.JFrame {
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(141, 141, 141)
                 .addComponent(resultLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +199,7 @@ public class Test extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -246,7 +253,7 @@ public class Test extends javax.swing.JFrame {
                     .addComponent(bRButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cRButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dRButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +266,7 @@ public class Test extends javax.swing.JFrame {
                 .addComponent(cRButton)
                 .addGap(29, 29, 29)
                 .addComponent(dRButton)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);

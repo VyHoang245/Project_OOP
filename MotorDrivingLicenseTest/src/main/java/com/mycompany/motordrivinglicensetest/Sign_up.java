@@ -52,6 +52,7 @@ public class Sign_up extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImages(null);
 
         jPanel1.setBackground(new java.awt.Color(186, 79, 84));
         jPanel1.setPreferredSize(new java.awt.Dimension(300, 419));
