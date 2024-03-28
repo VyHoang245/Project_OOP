@@ -108,7 +108,7 @@ public class Sign_up extends javax.swing.JDialog {
 
         signUpButton.setForeground(new java.awt.Color(255, 255, 255));
         signUpButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        signUpButton.setText("Sign up");
+        signUpButton.setText("Đăng kí");
         signUpButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         signUpButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -153,10 +153,10 @@ public class Sign_up extends javax.swing.JDialog {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 100, 80));
 
         jLabel7.setBackground(new java.awt.Color(74, 31, 61));
-        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(186, 79, 84));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("PRACTICE TEST");
+        jLabel7.setText("DRIVING TEST");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);

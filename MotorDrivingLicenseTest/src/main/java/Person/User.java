@@ -44,9 +44,8 @@ public class User {
         this.admin = admin;
     }
 
-    //private ArrayList<Test> list;
     public User(String name, String pass) {
-        //list = new ArrayList<>();
+        
         this.name = name;
         this.pass = pass;
     }

@@ -17,9 +17,7 @@ public class Question implements Serializable{
     private String answerC;
     private String answerD;
     private String key;
-    private String selectedAnswer;
-    private boolean result;
-    private int status;  
+    private String selectedAnswer;  
 
     public Question(String question, String answerA, String answerB, String answerC, String answerD, String key, String selectedAnswer) {
         this.question = question;
@@ -29,25 +27,6 @@ public class Question implements Serializable{
         this.answerD = answerD;
         this.key = key;
         this.selectedAnswer = selectedAnswer;
-    }
-    
-//    public Question(String question, String answerA, String answerB, String answerC, String answerD, String key, int status) {
-//        this.question = question;
-//        this.answerA = answerA;
-//        this.answerB = answerB;
-//        this.answerC = answerC;
-//        this.answerD = answerD;
-//        this.key = key;
-//        this.status = status;
-//    }
-    
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
     }
 
     public Question() {
@@ -100,25 +79,8 @@ public class Question implements Serializable{
 
     public void setSelectedAnswer(String selectedAnswer) {
         this.selectedAnswer = selectedAnswer;
-        //Result();
+        
     }
-//    public void Result(){
-//        if(selectedAnswer.compareToIgnoreCase(key)==0){
-//            result = true;
-//        }
-//        else{
-//            result = false;
-//        }
-//    }
-
-    public boolean isResult() {
-        return result;
-    }
-
-    public void setResult(boolean result) {
-        this.result = result;
-    }
-
     public String getKey() {
         return key;
     }

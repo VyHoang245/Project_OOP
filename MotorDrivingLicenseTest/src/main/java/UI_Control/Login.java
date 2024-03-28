@@ -49,6 +49,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         signUpButton = new javax.swing.JLabel();
+        show_HideRadioButton = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Đăng nhập");
@@ -62,7 +63,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Berlin Sans FB", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(186, 79, 84));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("PRACTICE TEST");
+        jLabel7.setText("DRIVING TEST");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, 30));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resourses/images/motor_icon.png"))); // NOI18N
@@ -126,7 +127,7 @@ public class Login extends javax.swing.JFrame {
                 signInMouseClicked(evt);
             }
         });
-        jPanel1.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 80, 30));
+        jPanel1.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 80, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-20 (1).png"))); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
@@ -143,7 +144,18 @@ public class Login extends javax.swing.JFrame {
                 signUpButtonMouseClicked(evt);
             }
         });
-        jPanel1.add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 80, 30));
+        jPanel1.add(signUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 80, 30));
+
+        show_HideRadioButton.setBackground(new java.awt.Color(186, 79, 84));
+        show_HideRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        show_HideRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        show_HideRadioButton.setText("Hiển thị mật khẩu");
+        show_HideRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_HideRadioButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(show_HideRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 140, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_END);
 
@@ -204,6 +216,15 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setText("");
     }//GEN-LAST:event_jPasswordField1FocusGained
 
+    private void show_HideRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_HideRadioButtonActionPerformed
+                if(show_HideRadioButton.isSelected()){
+            jPasswordField1.setEchoChar((char)0);
+            
+        } else {
+            jPasswordField1.setEchoChar((char)8226);
+        }
+    }//GEN-LAST:event_show_HideRadioButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -249,6 +270,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logo;
+    private javax.swing.JRadioButton show_HideRadioButton;
     private javax.swing.JLabel signIn;
     private javax.swing.JLabel signUpButton;
     private javax.swing.JTextField userTextField;

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI_Control;
+
 import Person.User;
 import java.util.*;
 import UserDAO.AllUser;
@@ -10,7 +11,9 @@ import UserDAO.FileServices.*;
 import static UserDAO.FileServices.saveAllUsers;
 import static UserDAO.FileServices.saveQuestion;
 import com.mycompany.motordrivinglicensetest.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author vygir
@@ -27,6 +30,7 @@ public class Admin extends javax.swing.JFrame {
         fillListQuestion();
     }
     ArrayList<User> list;
+
     public void fillListUsers() {
         list = AllUser.data;
         DefaultTableModel model = (DefaultTableModel) userTable.getModel();
@@ -38,12 +42,13 @@ public class Admin extends javax.swing.JFrame {
             Object[] rows = new Object[]{u.getName(), u.getPass(), String.format("%.0f", u.getGrade())};
             model.addRow(rows);
         }
-        
+
         saveAllUsers(list);
         pack();
 
     }
     ArrayList<Question> questions;
+
     public void fillListQuestion() {
         questions = ListQuestions.list;
         DefaultTableModel model = (DefaultTableModel) quesTable.getModel();
@@ -51,11 +56,11 @@ public class Admin extends javax.swing.JFrame {
         for (int i = rowCount - 1; i >= 0; i--) {
             model.removeRow(i);
         }
-        for (Question q: questions) {
-            Object[] rows = new Object[]{q.getQuestion(), q.getAnswerA(), q.getAnswerB(), q.getAnswerC(), q.getAnswerD(),q.getKey()};
+        for (Question q : questions) {
+            Object[] rows = new Object[]{q.getQuestion(), q.getAnswerA(), q.getAnswerB(), q.getAnswerC(), q.getAnswerD(), q.getKey()};
             model.addRow(rows);
         }
-        countLabel.setText("Tổng số câu hỏi là "+questions.size());
+        countLabel.setText("Tổng số câu hỏi là " + questions.size());
         //saveCDs();
         pack();
 
@@ -85,7 +90,6 @@ public class Admin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        questionText = new javax.swing.JTextField();
         AText = new javax.swing.JTextField();
         BText = new javax.swing.JTextField();
         CText = new javax.swing.JTextField();
@@ -94,6 +98,8 @@ public class Admin extends javax.swing.JFrame {
         addButton = new javax.swing.JButton();
         changeButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        questionTextArea = new javax.swing.JTextArea();
         countLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -255,6 +261,10 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        questionTextArea.setColumns(20);
+        questionTextArea.setRows(5);
+        jScrollPane2.setViewportView(questionTextArea);
+
         javax.swing.GroupLayout viewLayout = new javax.swing.GroupLayout(view);
         view.setLayout(viewLayout);
         viewLayout.setHorizontalGroup(
@@ -263,40 +273,41 @@ public class Admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(viewLayout.createSequentialGroup()
-                        .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(keyText)
-                            .addComponent(DText)
-                            .addComponent(CText)
-                            .addComponent(BText)
-                            .addComponent(questionText)
-                            .addComponent(AText)))
-                    .addGroup(viewLayout.createSequentialGroup()
                         .addGap(0, 118, Short.MAX_VALUE)
                         .addComponent(addButton)
                         .addGap(55, 55, 55)
                         .addComponent(changeButton)
                         .addGap(53, 53, 53)
                         .addComponent(deleteButton)
-                        .addGap(16, 16, 16)))
+                        .addGap(16, 16, 16))
+                    .addGroup(viewLayout.createSequentialGroup()
+                        .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(keyText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(DText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AText, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2))))
                 .addContainerGap())
         );
         viewLayout.setVerticalGroup(
             viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(56, 56, 56)
+                .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(viewLayout.createSequentialGroup()
-                        .addGroup(viewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(questionText, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(AText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(viewLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -312,7 +323,7 @@ public class Admin extends javax.swing.JFrame {
                     .addComponent(addButton)
                     .addComponent(changeButton)
                     .addComponent(deleteButton))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         qusPanel.add(view, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 470, 395));
@@ -340,8 +351,8 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void changeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeButtonActionPerformed
-        Question q = new Question(questionText.getText(), AText.getText(), BText.getText(), CText.getText(), DText.getText(), keyText.getText(),"asd");
-        int index = quesTable.getSelectedRow(); 
+        Question q = new Question(questionTextArea.getText(), AText.getText(), BText.getText(), CText.getText(), DText.getText(), keyText.getText(), "asd");
+        int index = quesTable.getSelectedRow();
         questions.set(index, q);
         saveQuestion(questions);
         fillListQuestion();
@@ -357,7 +368,8 @@ public class Admin extends javax.swing.JFrame {
         selectedRow[3] = quesTable.getValueAt(row, 3);
         selectedRow[4] = quesTable.getValueAt(row, 4);
         selectedRow[5] = quesTable.getValueAt(row, 5);
-        questionText.setText(String.valueOf(selectedRow[0]));
+        questionTextArea.setLineWrap(true);
+        questionTextArea.setText(String.valueOf(selectedRow[0]));
         AText.setText(String.valueOf(selectedRow[1]));
         BText.setText(String.valueOf(selectedRow[2]));
         CText.setText(String.valueOf(selectedRow[3]));
@@ -366,28 +378,36 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_quesTableMouseClicked
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        int index = quesTable.getSelectedRow();
-        questions.remove(index);
-        saveQuestion(questions);
-        fillListQuestion();
+        int confirm = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa câu hỏi này chứ?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            int index = quesTable.getSelectedRow();
+            questions.remove(index);
+            saveQuestion(questions);
+            fillListQuestion();
+        }
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         AddQuestion add = new AddQuestion(this, true);
         add.setVisible(true);
         Question q = add.getQ();
-        if(q!=null){
+        if (q != null) {
             questions.add(q);
             saveQuestion(questions);
             fillListQuestion();
         }
-        
+
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void deleteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteLabelMouseClicked
-        int index = userTable.getSelectedRow();
-        list.remove(index);
-        fillListUsers();
+        int confirm = JOptionPane.showConfirmDialog(null, "Bạn chắc chắn muốn xóa người dùng này chứ?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            int index = userTable.getSelectedRow();
+            list.remove(index);
+            fillListUsers();
+        }
+
     }//GEN-LAST:event_deleteLabelMouseClicked
 
     /**
@@ -441,11 +461,12 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField keyText;
     private javax.swing.JTable quesTable;
     private javax.swing.JTabbedPane questionTable;
-    private javax.swing.JTextField questionText;
+    private javax.swing.JTextArea questionTextArea;
     private javax.swing.JPanel qusPanel;
     private javax.swing.JPanel table;
     private javax.swing.JPanel userPanel;
